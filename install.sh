@@ -93,8 +93,14 @@ function lightdm-arch(){
 	whiptail --title "Change Required" --msgbox " Remove auto generated nvidia Configuration file -->> Remove From /etc/modprobe.d/ and /etc/X11/xorg.conf.d/" 8 78
 	mv blacklist-nouveau /etc/modprobe.d/nvidia.conf
 	mv nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
-	mv optimus.sh /usr/local/bin/optimus.sh
-	chmod a+rx /usr/local/bin/optimus.sh
+	mv display_setup /etc/lightdm/display_setup.sh
+	chmod +x /etc/lightdm/display_setup.sh
+	echo " If You Can See Only PCI Value Then Do This:"
+	echo "Edit PCI value Accordingly before You proceed -->>> Edit /etc/X11/xorg.conf and add your system PCI value"
+	echo "---------------------------------------------------------------------------------------------------------"
+	echo "Edit and Add Following: /etc/lightdm/lightdm.conf"
+	echo "Add This At ->> [Seat:*] ... display-setup-script=/etc/lightdm/display_setup.sh"
+	echo "---------------------------------------------------------------------------------------------------------"
 	whiptail --title "Change Required" --msgbox "Edit PCI value Accordingly before You proceed -->>> Edit /usr/local/bin/optimus.sh and add your system PCI value" 8 78
 }
 
@@ -135,8 +141,15 @@ function lightdm-manjaro(){
 		mv optimus.conf /etc/X11/xorg.conf.d/optimus.conf
 		mv blacklist-nouveau /etc/modprobe.d/nvidia.conf
 		mv nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
-		mv optimus.sh /usr/local/bin/optimus.sh
-		chmod a+rx /usr/local/bin/optimus.sh
+		mv display_setup /etc/lightdm/display_setup.sh
+		chmod +x /etc/lightdm/display_setup.sh
+		echo " If You Can See Only PCI Value Then Do This:"
+		echo "Edit PCI value Accordingly before You proceed -->>> Edit /etc/X11/xorg.conf and add your system PCI value"
+		echo "---------------------------------------------------------------------------------------------------------"
+		echo "Edit and Add Following: /etc/lightdm/lightdm.conf"
+		echo "Add This At ->> [Seat:*] ... display-setup-script=/etc/lightdm/display_setup.sh"
+		echo "---------------------------------------------------------------------------------------------------------"
+
 		whiptail --title "Change Required" --msgbox "Edit PCI value Accordingly before You proceed -->>> Edit /usr/local/bin/optimus.sh and add PCI value" 8 78
 	else
 		clear
@@ -145,20 +158,23 @@ function lightdm-manjaro(){
 }
 
 function sddm-arch(){
-	pacman -S nvidia nvidia-dkms nvidia-settings
-	mkdir /etc/pacman.d/hooks
-	mv nvidia.hook /etc/pacman.d/hooks
-	mv optimus.conf /etc/X11/xorg.conf.d/optimus.conf
-	whiptail --title "Change Required" --msgbox " Remove auto generated nvidia Configuration file -->> Remove From /etc/modprobe.d/ and /etc/X11/xorg.conf.d/" 8 78
-	mv blacklist-nouveau /etc/modprobe.d/nvidia.conf
-	mv nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
-	mv optimus.sh /usr/local/bin/optimus.sh
-	chmod a+rx /usr/local/bin/optimus.sh
-	whiptail --title "Change Required" --msgbox "Edit This File /usr/share/sddm/scripts/Xsetup  ... Add as shown in next dialogbox" 8 78
-        whiptail --title "Add This " --msgbox "xrandr --setprovideroutputsource modesetting NVIDIA-0
-        xrandr --auto " 8 78
-	whiptail --title "Change Required" --msgbox "Edit PCI value Accordingly before You proceed -->>> Edit /usr/local/bin/optimus.sh and add your system PCI value" 8 78
-
+	whiptail --title "Attention Required" --msgbox "Do uninstall and remove Old Nvidia Driver Packages and Settings" 8 78
+	if(whiptail --title "Are You Ready to proceed?" --yesno "If You are Ready to proceed then press YES else NO" 8 78); then
+		pacman -S nvidia nvidia-dkms nvidia-settings
+		mkdir /etc/pacman.d/hooks
+		mv nvidia.hook /etc/pacman.d/hooks
+		mv optimus.conf /etc/X11/xorg.conf.d/optimus.conf
+		whiptail --title "Change Required" --msgbox " Remove auto generated nvidia Configuration file -->> Remove From /etc/modprobe.d/ and /etc/X11/xorg.conf.d/" 8 78
+		mv blacklist-nouveau /etc/modprobe.d/nvidia.conf
+		mv nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
+		whiptail --title "Change Required" --msgbox "Edit This File /usr/share/sddm/scripts/Xsetup  ... Add as shown in next dialogbox" 8 78
+        	whiptail --title "Add This " --msgbox "xrandr --setprovideroutputsource modesetting NVIDIA-0
+        	xrandr --auto " 8 78
+		whiptail --title "Change Required" --msgbox "Edit PCI value Accordingly before You proceed -->>> Edit /usr/local/bin/optimus.sh and add your PCI value" 8 78
+	else
+		clear
+		whiptail --title "Do It then run again" --msgbox "Remove all Previously Installed Nvidia Stuff" 8 78
+	fi
 }
 
 function sddm-debian(){
@@ -197,8 +213,6 @@ function sddm-manjaro(){
 		whiptail --title "Change Required" --msgbox " Remove auto generated nvidia Configuration file -->> Remove From /etc/modprobe.d/ and /etc/X11/xorg.conf.d/" 8 78
 		mv blacklist-nouveau /etc/modprobe.d/nvidia.conf
 		mv nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
-		mv optimus.sh /usr/local/bin/optimus.sh
-		chmod a+rx /usr/local/bin/optimus.sh
 		whiptail --title "Change Required" --msgbox "Edit This File /usr/share/sddm/scripts/Xsetup  ... Add as shown in next dialogbox" 8 78
         	whiptail --title "Add This " --msgbox "xrandr --setprovideroutputsource modesetting NVIDIA-0
         	xrandr --auto " 8 78
