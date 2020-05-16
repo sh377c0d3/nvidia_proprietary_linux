@@ -13,7 +13,7 @@ Step2 : ` # ./install.sh `
 
 # For Arch No Need To Logout 
 
-# Don't Forget To Change PCI Value According To Your System...
+# Don't Forget To Change "xorg" Configuration According To Your System...
 
 
 ENJOY NVIDIA IN YOUR SYSTEM :)
