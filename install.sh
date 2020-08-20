@@ -20,8 +20,8 @@ menu(){
         echo -e "${BLUE} 8) ${RED} SDDM-Debian ${REST}"
         echo -e "${BLUE} 9) ${RED} SDDM-Manjaro ${REST}"
 	echo -e "${GREEN} +++++++++++++++++++++++++++++++++++++++++++++++++++ ${REST}"
-	echo -e " .. ${RED} To Exit Press ENTER ${REST}"
-	read -p "Enter The Choice According To You DE Only => " opt
+	echo -e " ${RED} << To Exit Press ENTER >> ${REST}"
+	read -p " Enter Your Choice:=> " opt
 }
 
 function gdm-arch(){
