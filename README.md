@@ -1,6 +1,8 @@
 # nvidia-proprietary
 Install Nvidia's Proprietary Driver in any Debian based, Arch based or in Manjaro, but not UBUNTU Based.
 
+# Don't Forget To Change "xorg" Configuration According To Your System !!!
+
 # Before You Proceed Just Remember Installing Nvidia is So Easy Now
 
 Step1 : ` # chmod +x install.sh `
@@ -12,8 +14,5 @@ Step2 : ` # ./install.sh `
             Type : ` # systemctl stop < gdm/lightdm/sddm > `
 
 # For Arch No Need To Logout 
-
-# Don't Forget To Change "xorg" Configuration According To Your System...
-
 
 ENJOY NVIDIA IN YOUR SYSTEM :)
