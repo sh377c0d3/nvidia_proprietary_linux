@@ -66,7 +66,7 @@ function gdm-debian(){
 function gdm-manjaro(){
 	whiptail --title "Attention Required" --msgbox "Do uninstall and remove Old Nvidia Driver Packages and Settings" 8 78
 	if(whiptail --title "Are You Ready to proceed?" --yesno "If You are Ready to proceed then press YES else NO" 8 78); then
-		mhwd -i pci video-nvidia-465xx
+		mhwd -i pci video-nvidia
 		mkdir /etc/pacman.d/hooks
 		mv nvidia.hook /etc/pacman.d/hooks
 		mv optimus.conf /etc/X11/xorg.conf.d/optimus.conf
@@ -134,7 +134,7 @@ function lightdm-debian(){
 function lightdm-manjaro(){
 	whiptail --title "Attention Required" --msgbox "Do uninstall and remove Old Nvidia Driver Packages and Settings" 8 78
 	if(whiptail --title "Are You Ready to proceed?" --yesno "If You are Ready to proceed then press YES else NO" 8 78); then
-		mhwd -i pci video-nvidia-465xx
+		mhwd -i pci video-nvidia
 		mkdir /etc/pacman.d/hooks
 		mv nvidia.hook /etc/pacman.d/hooks
 		whiptail --title "Change Required" --msgbox " Remove auto generated nvidia Configuration file -->> Remove From /etc/modprobe.d/ and /etc/X11/xorg.conf.d/" 8 78
@@ -206,7 +206,7 @@ function sddm-debian(){
 function sddm-manjaro(){
 	whiptail --title "Attention Required" --msgbox "Do uninstall and remove Old Nvidia Driver Packages and Settings" 8 78
 	if(whiptail --title "Are You Ready to proceed?" --yesno "If You are Ready to proceed then press YES else NO" 8 78); then
-		mhwd -i pci video-nvidia-465xx
+		mhwd -i pci video-nvidia
 		mkdir /etc/pacman.d/hooks
 		mv nvidia.hook /etc/pacman.d/hooks
 		mv optimus.conf /etc/X11/xorg.conf.d/optimus.conf
