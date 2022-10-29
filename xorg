@@ -8,7 +8,7 @@ Section "Device"
     Identifier "nvidia"
     Driver "nvidia"
     # You may need to change the PCI value
-    BusID "PCI:8:0:0"
+    BusID "PCI:1:0:0"
 EndSection
 
 Section "Screen"
